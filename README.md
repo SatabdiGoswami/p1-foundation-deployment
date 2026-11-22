@@ -1,11 +1,14 @@
 # Project 1 Handover
 
-## Status
+## Delivery Status
 
-Local packaging, Kubernetes deployment, Argo CD sync, app checks, and Loki correlation were verified on 2026-11-21.
-The prepared classroom deployment, peer review, controlled failure exercise, peer reproduction, and individual
-demonstration were not completed. Team name and operators were not recorded. Local results below are not classroom or
-BP deployment evidence.
+**Completed and verified locally on 2026-11-21:** container image build, Kubernetes deployment, Argo CD reconciliation,
+page/health/reference API checks, and request correlation in Loki. The tested environment is a single-node Kind cluster
+running on Podman, with Argo CD and Grafana/Loki.
+
+**Remaining for full P1 completion:** prepared classroom image import and reviewed classroom reconciliation, the required
+Service failure/recovery exercise, peer reproduction, and individual demonstration. The classroom session and namespace
+were not available for this work. Team name and operators were not recorded.
 
 ## Source and Changes
 
@@ -50,8 +53,8 @@ podman image inspect localhost/p1-local:foundation-a --format '{{.Id}}'
 * Local Argo source commit: `b58a081ba2d39243e1ef7d0b92be307794ad3f44`.
 * Local Argo Application: `p1-foundation-local`; synced to `b58a081` and Healthy on 2026-11-21.
 * Peer review: not recorded. This was the local GitOps repo, not a classroom-reviewed configuration commit.
-* GitHub submission commit: `19f4b503c30d07875e2f63234ea00a86e537a9e0`; this is the project submission commit, not the Argo
-	deployment revision.
+* GitHub submission: `SatabdiGoswami/p1-foundation-deployment`; its history records submission revisions separately from
+	the Argo deployment revision.
 
 ## Verification
 
@@ -73,9 +76,8 @@ podman image inspect localhost/p1-local:foundation-a --format '{{.Id}}'
 * Classroom recovery revision: none exists because classroom deployment was not run. The local Argo app can be inspected
 	with `argocd --core app get p1-foundation-local`; the local GitOps commit is listed above.
 
-## Completion Assessment
+## P1 Completion Scope
 
-This repository contains verified local packaging and a local Kubernetes/Argo CD deployment with app and Loki checks.
-It is **not a complete P1 delivery yet**: the project brief also requires classroom review and reconciliation, the
-controlled failure/recovery exercise, peer reproduction, and individual demonstrations. BP Yalla scaffolding, pull
-request, and deployment remain pending because the approved walkthrough was unavailable.
+The local container, Kubernetes/Argo CD deployment, app routes, and Loki correlation are verified. The classroom-specific
+review/import/reconciliation and learner milestones listed above remain outstanding. BP Yalla scaffolding, pull request,
+and deployment remain pending because the approved walkthrough was unavailable.
