@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: p1-foundation-local
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git://p1-git.p1-local.svc.cluster.local:9418/p1-config.git
+    targetRevision: main
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: p1-local
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

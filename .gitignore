@@ -1,0 +1,10 @@
+**/.git/
+**/bin/
+**/obj/
+**/publish/
+.vs/
+*.user
+*.suo
+*.kubeconfig
+kubeconfig*
+running-pods.json
